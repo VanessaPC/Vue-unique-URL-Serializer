@@ -1,5 +1,4 @@
 import express from "express";
-import passport from "passport";
 import router from "./routes";
 import cors from "cors";
 import helmet from "helmet";
@@ -14,5 +13,3 @@ app.use(helmet());
 app.use(helmet.noCache());
 
 app.use(router);
-
-app.use(passport.initialize());
