@@ -8,7 +8,4 @@ app.use(cors());
 app.use(express.json());
 app.use(helmet());
 
-// Not caching on the client side
-// app.use(helmet.noCache())
-
-app.use(router());
+app.use(router);

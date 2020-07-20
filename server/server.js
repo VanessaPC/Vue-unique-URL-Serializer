@@ -8,6 +8,8 @@ const server = http.createServer(app);
 
 connectDb().then(async () => {
   server.listen(port, () =>
-    console.log(`Example app listening on port ${port}!`)
+    console.log(
+      `<--------------------------- URL-UUID server listening on port ${port}! --------------------------------->`
+    )
   );
 });
