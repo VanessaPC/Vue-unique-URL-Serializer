@@ -4,6 +4,7 @@
     <div>{{ url }}</div>
     <button type="submit" v-on:click="submit">Submit URL</button>
     <div v-show="result">https://pbid.io/{{ result }}</div>
+    <div v-show="exists">This url already exits</div>
   </div>
 </template>
 
@@ -17,6 +18,7 @@ export default {
       url: "",
       submitted: false,
       result: "",
+      exists: false,
     };
   },
 
@@ -30,7 +32,10 @@ export default {
         }),
       })
         .then((res) => res.json())
-        .then((data) => (this.result = data.serializer));
+        .then((data) => {
+          this.result = data.serializer;
+          this.exists = data.exists;
+        });
     },
   },
 };

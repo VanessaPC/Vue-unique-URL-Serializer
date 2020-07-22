@@ -67,12 +67,12 @@ export const saveUrlUID = async (req, res) => {
       { useFindAndModify: true }
     );
 
-    if (userUrlExists) return userUrlExists;
+    if (userUrlExists)
+      return res.json({ ...userUrlExists.toObject(), exists: true });
 
     cleanUrl(newUrl.url);
 
     const uniqueUrl = await setUniqueSerializer(newUrl);
-    console.log("uniqueURL: ", uniqueUrl);
 
     return res.json(uniqueUrl);
   } catch (err) {

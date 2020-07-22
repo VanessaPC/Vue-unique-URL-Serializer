@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div>
-      Recent saved url's
-    </div>
+    <h3>
+      Recent shortened URL's
+    </h3>
     <div id="url-container" v-for="url in urls" :key="url._id">
       {{ url.url }}
     </div>
@@ -27,6 +27,7 @@ export default {
         .catch((error) => error);
     },
   },
+
   mounted() {
     this.init();
   },

@@ -9,7 +9,9 @@ import { Url } from "../../models/url.model";
  */
 
 export const getUrlUID = async (req, res) => {
-  const recentUrlList = await Url.find();
+  const recentUrlList = await Url.find()
+    .sort({ timeStamp: -1 })
+    .limit(10);
 
   return res.status(200).send(recentUrlList);
 };

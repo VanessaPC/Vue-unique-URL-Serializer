@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>Shorten your URL</h1>
     <RecentUrl />
     <InputUrl />
   </div>
