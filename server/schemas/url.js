@@ -1,14 +1,12 @@
 import { Schema } from "mongoose";
 
 export const UrlSchema = new Schema({
-  _id: {
-    type: String,
-  },
   serializer: {
     type: String,
     required: true,
+    unique: true,
   },
-  name: {
+  url: {
     type: String,
     required: true,
   },

@@ -1,22 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js World" />
+    <RecentUrl />
+    <InputUrl />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import RecentUrl from "./components/recent-urls";
+import InputUrl from "./components/input";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
-  }
+    RecentUrl,
+    InputUrl,
+  },
 };
 </script>
 
 <style>
+body,
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
