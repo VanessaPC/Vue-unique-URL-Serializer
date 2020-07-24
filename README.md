@@ -1,6 +1,10 @@
 # url-uuid-app
 
-## How to fire up the project:
+## Description
+
+This project is about
+
+## How to run the project:
 
 Run this command
 
@@ -8,13 +12,24 @@ Run this command
 docker-compose up -d --build
 ```
 
-and when you are finished:
+You should be then, able to visit
+[localhost://8080](Localhost)
+and see the result. This is running in dev mode,
+so you can work with the code and see the updates.
+
+When you are finished:
 
 ```
 docker-compose stop
 ```
 
-## Other Commands:
+If you want to run the unit tests:
+
+```
+npm run test:unit
+```
+
+## Other Commands without using Docker:
 
 ## Project setup
 
