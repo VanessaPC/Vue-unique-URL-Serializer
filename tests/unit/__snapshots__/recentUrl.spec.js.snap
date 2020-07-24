@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecentUrl component should render UserInputURL 1`] = `
+<div>
+  <div
+    class="kLLGnf"
+  >
+    <h2>
+      
+    Recently shortened URL's
+  
+    </h2>
+    
+  []
+   
+    <p
+      data-testid="url-empty-container"
+      style="display: none;"
+    >
+      
+    There are no recently shortned URL's
+  
+    </p>
+  </div>
+</div>
+`;

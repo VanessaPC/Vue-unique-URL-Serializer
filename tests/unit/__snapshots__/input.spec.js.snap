@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserInputURL and submit button behaviour should render UserInputURL 1`] = `
+<div>
+  <div>
+    <div
+      class="kYYMJh"
+    >
+      <input
+        class="hwMher"
+        placeholder="Enter your url"
+      />
+       
+      <button
+        class="gGPVhI"
+        style="display: none;"
+        type="submit"
+      >
+        Submit URL
+      </button>
+    </div>
+     
+    <div
+      class="GFraz"
+    >
+      <span
+        style="display: none;"
+      >
+        This url already exists: 
+      </span>
+       
+      <span
+        style="display: none;"
+      >
+        https://pbid.io/
+      </span>
+    </div>
+  </div>
+</div>
+`;

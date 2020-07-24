@@ -1,11 +1,23 @@
 version: "3.7"
 
 services:
-  my-app:
-    container_name: url-uuid-app
+  client:
+    container_name: url-uuid-client
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: client.Dockerfile
+
+    volumes:
+      - ".:/app"
+      - "/app/node_modules"
+    ports:
+      - "8080:8080"
+
+  server:
+    container_name: url-uuid-server
+    build:
+      context: .
+      dockerfile: server.Dockerfile
 
     volumes:
       - ".:/app"
@@ -13,10 +25,11 @@ services:
     depends_on:
       - "mongo"
     ports:
-      - "8081:8080"
+      - "3100:3100"
     environment:
       - CHOKIDAR_USEPOLLING=true
+
   mongo:
     image: "mongo"
     ports:
-      - "27017:27017"
+      - "27018:27017"

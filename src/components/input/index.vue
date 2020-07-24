@@ -1,18 +1,28 @@
 <template>
-  <div @submit.prevent.stop="submit">
-    <input placeholder="Enter your url" v-model="url" />
-    <div>{{ url }}</div>
-    <button type="submit" v-on:click="submit">Submit URL</button>
-    <div v-show="result">https://pbid.io/{{ result }}</div>
-    <div v-show="exists">This url already exits</div>
+  <div>
+    <InputContainer @submit.prevent.stop="submit">
+      <InputUserURL placeholder="Enter your url" v-model="url" />
+      <Button v-show="url" type="submit" v-on:click="submit">Submit URL</Button>
+    </InputContainer>
+    <UrlResults>
+      <span v-show="exists">This url already exists: </span>
+      <span v-show="result">https://pbid.io/{{ result }}</span>
+    </UrlResults>
   </div>
 </template>
 
 <script>
-import config from "../../config";
+import { InputContainer, Button, InputUserURL, UrlResults } from "./styles";
+import { sendUrl } from "../../modules/urls";
 
 export default {
-  name: "InputURL",
+  name: "userInputURL",
+  components: {
+    InputContainer,
+    Button,
+    InputUserURL,
+    UrlResults,
+  },
   data: function() {
     return {
       url: "",
@@ -21,21 +31,12 @@ export default {
       exists: false,
     };
   },
-
   methods: {
     submit: function() {
-      fetch(config.saveUrl, {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          url: this.url,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          this.result = data.serializer;
-          this.exists = data.exists;
-        });
+      return sendUrl(this.url).then((data) => {
+        this.result = data.serializer;
+        this.exists = data.exists;
+      });
     },
   },
 };
