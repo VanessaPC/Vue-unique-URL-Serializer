@@ -9,7 +9,7 @@ This project is about
 Run this command
 
 ```
-docker-compose up -d --build
+docker-compose up
 ```
 
 You should be then, able to visit

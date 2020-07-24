@@ -35,8 +35,9 @@ export default {
         .catch((error) => error);
     },
   },
+
   mounted: function() {
-    this.$nextTick(function() {});
+    this.init();
     Bus.$on("updateList", () => this.init());
   },
 };
