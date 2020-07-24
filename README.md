@@ -14,6 +14,8 @@ and when you are finished:
 docker-compose stop
 ```
 
+## Other Commands:
+
 ## Project setup
 
 ```

@@ -7,7 +7,7 @@
       <span>{{ url.url }}: </span>
       <a href="/"> http://pbid.io/{{ url.serializer }}</a>
     </div>
-    <p data-testid="url-empty-container" v-show="url <= 0">
+    <p data-testid="url-empty-container" v-show="urls.length <= 0">
       There are no recently shortned URL's
     </p>
   </UrlContainer>
@@ -16,6 +16,7 @@
 <script>
 import config from "../../config";
 import { UrlContainer } from "./style";
+import { Bus } from "../../main";
 
 export default {
   name: "RecentUrl",
@@ -23,7 +24,7 @@ export default {
     UrlContainer,
   },
   data: function() {
-    return { urls: [], url: "" };
+    return { urls: [], url: "", componentKey: 0 };
   },
 
   methods: {
@@ -33,6 +34,10 @@ export default {
         .then((jsonData) => (this.urls = jsonData))
         .catch((error) => error);
     },
+  },
+  mounted: function() {
+    this.$nextTick(function() {});
+    Bus.$on("updateList", () => this.init());
   },
 };
 </script>

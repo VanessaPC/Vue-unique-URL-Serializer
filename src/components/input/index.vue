@@ -14,7 +14,7 @@
 <script>
 import { InputContainer, Button, InputUserURL, UrlResults } from "./styles";
 import { sendUrl } from "../../modules/urls";
-
+import { Bus } from "../../main";
 export default {
   name: "userInputURL",
   components: {
@@ -36,6 +36,7 @@ export default {
       return sendUrl(this.url).then((data) => {
         this.result = data.serializer;
         this.exists = data.exists;
+        Bus.$emit("updateList");
       });
     },
   },
