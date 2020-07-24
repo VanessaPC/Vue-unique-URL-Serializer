@@ -3,9 +3,10 @@
     <h2>
       Recently shortened URL's
     </h2>
-    <p data-testid="url-container" v-for="url in urls" :key="url._id">
-      {{ url.url }}
-    </p>
+    <div data-testid="url-container" v-for="url in urls" :key="url._id">
+      <span>{{ url.url }}: </span>
+      <a href="/"> http://pbid.io/{{ url.serializer }}</a>
+    </div>
     <p data-testid="url-empty-container" v-show="url <= 0">
       There are no recently shortned URL's
     </p>
@@ -22,7 +23,7 @@ export default {
     UrlContainer,
   },
   data: function() {
-    return { urls: [] };
+    return { urls: [], url: "" };
   },
 
   methods: {
@@ -32,10 +33,6 @@ export default {
         .then((jsonData) => (this.urls = jsonData))
         .catch((error) => error);
     },
-  },
-
-  mounted() {
-    this.init();
   },
 };
 </script>

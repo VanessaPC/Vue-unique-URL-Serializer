@@ -41,6 +41,11 @@ injectGlobal`
   span {
     font-size: 16px;
     line-height: 1.7px;
+    font-weight: bold;
+  }
+  a {
+    text-decoration: underline;
+    color: #eee;
   }
 `;
 
